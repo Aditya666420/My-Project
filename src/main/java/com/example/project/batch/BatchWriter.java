@@ -25,6 +25,7 @@ public class BatchWriter implements ItemWriter<FoodOrder> {
 			orders.add(order);
 		}
 		 repo.saveAll(orders);
+		 
 		
 	}
 

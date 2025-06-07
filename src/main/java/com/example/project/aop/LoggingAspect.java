@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Around("execution(* com.example.project.services.*.*(..))")
+    @Around("execution(* com.example.project.services.*.*(..))||"+"execution(* com.example.project.controller.*.*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().toShortString();
         System.out.println("➡️ Before executing: " + methodName);

@@ -54,7 +54,7 @@ public class SecurityConfig {
                 // Role-based endpoints
                 .requestMatchers("/menu-items/**").hasAnyRole("USER","ADMIN")
                 .requestMatchers("/order/tables/**").hasRole("ADMIN")
-                
+                .requestMatchers("/jobs/**").hasAnyRole("ADMIN")
                 // All other endpoints require authentication
                 .anyRequest().authenticated()
             )

@@ -1,6 +1,7 @@
 package com.example.project.batch;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,8 +24,9 @@ public class BatchReader implements ItemReader<FoodOrder>{
 
     @Override
     public FoodOrder read() {
+    	List<String> statuses = Arrays.asList("PENDING","UNDELIVERED","FAILED");
         if (orderIterator == null) {
-            List<FoodOrder> orders = orderRepo.findAll();
+            List<FoodOrder> orders = orderRepo.findByStatusInAndOrderTimeBefore(statuses, LocalDateTime.now().minusMinutes(1));
             System.out.println(orders);
             orderIterator = orders.iterator();
         }

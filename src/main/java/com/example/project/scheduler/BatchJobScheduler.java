@@ -22,7 +22,7 @@ public class BatchJobScheduler {
     @Autowired
     private  Job orderStatusUpdateJob;
 
-    @Scheduled(fixedRate = 60 * 1000) // every 1 minute
+    @Scheduled(cron = "0 0 0 * * *") 
     public void runJob() {
         try {
             logger.info("Triggering scheduled batch job at {}", new Date());

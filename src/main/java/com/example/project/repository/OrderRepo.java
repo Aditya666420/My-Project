@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.project.entity.FoodOrder;
 
 public interface OrderRepo extends JpaRepository<FoodOrder,Long>{
-		List<FoodOrder> findByStatusAndOrderTimeBefore(String status,LocalDateTime orderTime);
+		List<FoodOrder> findByStatusInAndOrderTimeBefore(List<String> statuses,LocalDateTime orderTime);
 }
